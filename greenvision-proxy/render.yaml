@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: greenvision-proxy
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: API_KEY
+        sync: false
+      - key: API_URL
+        value: https://open.bigmodel.cn/api/paas/v4/chat/completions
+      - key: MODEL
+        value: glm-4-flash
+      - key: CLIENT_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS
+        value: https://your-github-username.github.io
+      - key: RATE_LIMIT_MAX
+        value: "50"
